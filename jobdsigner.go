@@ -6,18 +6,28 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/peterducai/jobdsigner/api"
 	"github.com/peterducai/jobdsigner/models"
 )
 
 func main() {
-	ver := models.Version{0, 0, 1, "xeee1"}
-	fmt.Printf("Job dSigner %d.%d.%d %s\n", ver.MAJOR,ver.MINOR,ver.PATCH,ver.HASH)
-	
+
+	var ver = new(models.Version)
+	ver.MAJOR = 0
+	ver.MINOR = 0
+	ver.PATCH = 1
+	ver.HASH = "a1"
+	fmt.Printf("Job dSigner %d.%d.%d %s\n", ver.MAJOR, ver.MINOR, ver.PATCH, ver.HASH)
+
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
 		w.Header().Add("Strict-Transport-Security", "max-age=63072000; includeSubDomains")
-		fmt.Fprintf(w, "Job dSigner %d.%d.%d %s\n", ver.MAJOR,ver.MINOR,ver.PATCH,ver.HASH)
+		fmt.Fprintf(w, "Job dSigner %d.%d.%d %s\n", ver.MAJOR, ver.MINOR, ver.PATCH, ver.HASH)
 	})
+
+	//HANDLERS
+	mux.HandleFunc("/job", api.JobAdd)
+
 	cfg := &tls.Config{
 		MinVersion:               tls.VersionTLS12,
 		CurvePreferences:         []tls.CurveID{tls.CurveP521, tls.CurveP384, tls.CurveP256},
@@ -37,5 +47,5 @@ func main() {
 	}
 	fmt.Println("server is running at https://localhost:8443")
 	log.Fatal(srv.ListenAndServeTLS("tls.crt", "tls.key"))
-	
+
 }

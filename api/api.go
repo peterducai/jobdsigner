@@ -1,4 +1,4 @@
-package jobdsigner
+package api
 
 //API represents API
 type API struct {
