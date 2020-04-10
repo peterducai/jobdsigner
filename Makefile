@@ -23,3 +23,5 @@ compile:
 	GOOS=linux GOARCH=amd64 go build -o bin/jobdsigner-linux-amd64 jobdsigner.go
 	# Windows
 	GOOS=windows GOARCH=amd64 go build -o bin/jobdsigner-windows-amd64 jobdsigner.go
+	
+.PHONY: all test clean
