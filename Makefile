@@ -5,7 +5,7 @@ run:
 	go run jobdsigner.go
 
 install: 
-	go install
+	go install bin/jobdsigner
 
 get:
 	rm -rf ~/go/src/github.com/peterducai/jobdsigner
