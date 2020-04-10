@@ -4,6 +4,13 @@ build:
 run:
 	go run jobdsigner.go
 
+install: 
+	go install
+
+get:
+	rm -rf ~/go/src/github.com/peterducai/jobdsigner
+	go get github.com/peterducai/jobdsigner
+
 compile:
 	# 32-Bit Systems
 	# FreeBDS
