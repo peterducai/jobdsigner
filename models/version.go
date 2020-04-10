@@ -7,3 +7,8 @@ type Version struct {
 	PATCH int    //version when you make backwards compatible bug fixes.
 	HASH  string //to verify integrity of software
 }
+
+var JVersion Version
+
+//CreateVersion create version banner
+// func CreateVersion

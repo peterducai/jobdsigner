@@ -12,21 +12,19 @@ import (
 
 func main() {
 
-	var ver = new(models.Version)
-	ver.MAJOR = 0
-	ver.MINOR = 0
-	ver.PATCH = 1
-	ver.HASH = "a1"
-	fmt.Printf("Job dSigner %d.%d.%d %s\n", ver.MAJOR, ver.MINOR, ver.PATCH, ver.HASH)
+	models.JVersion.MAJOR = 0
+	models.JVersion.MINOR = 0
+	models.JVersion.PATCH = 1
+	models.JVersion.HASH = "11"
+
+	fmt.Printf("Job dSigner %d.%d.%d %s\n", models.JVersion.MAJOR, models.JVersion.MINOR, models.JVersion.PATCH, models.JVersion.HASH)
 
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
-		w.Header().Add("Strict-Transport-Security", "max-age=63072000; includeSubDomains")
-		fmt.Fprintf(w, "Job dSigner %d.%d.%d %s\n", ver.MAJOR, ver.MINOR, ver.PATCH, ver.HASH)
-	})
 
 	//HANDLERS
-	mux.HandleFunc("/job", api.JobAdd)
+	mux.HandleFunc("/", api.Main)
+	mux.HandleFunc("/job/add", api.JobAdd)
+	mux.HandleFunc("/about", api.About)
 
 	cfg := &tls.Config{
 		MinVersion:               tls.VersionTLS12,
