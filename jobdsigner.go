@@ -11,7 +11,8 @@ import (
 
 func main() {
 	ver := models.Version{0, 0, 1, ""}
-	fmt.Println(ver)
+	fmt.Printf("Job dSigner %d.%d.%d", ver.MAJOR,ver.MINOR,ver.PATCH)
+	
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
 		w.Header().Add("Strict-Transport-Security", "max-age=63072000; includeSubDomains")
