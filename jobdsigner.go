@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	ver := Version{0, 0, 1, ""}
+	ver := new(Version{0, 0, 1, ""})
 	fmt.Println(ver)
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
