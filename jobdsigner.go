@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/peterducai/jobdsigner/api"
 	"github.com/peterducai/jobdsigner/models"
@@ -15,7 +16,10 @@ func main() {
 	models.JVersion.MAJOR = 0
 	models.JVersion.MINOR = 0
 	models.JVersion.PATCH = 1
-	models.JVersion.HASH = "11"
+	models.JVersion.HASH = "a12"
+	models.JVersion.Startime = time.Now().Format(time.RFC850)
+
+	//models.PipelinePool = append(new(models.Pipeline{}))
 
 	fmt.Printf("Job dSigner %d.%d.%d %s\n", models.JVersion.MAJOR, models.JVersion.MINOR, models.JVersion.PATCH, models.JVersion.HASH)
 
