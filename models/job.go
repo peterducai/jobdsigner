@@ -1,4 +1,4 @@
-package jobdsigner
+package models
 
 //Job defines task/job
 type Job struct {

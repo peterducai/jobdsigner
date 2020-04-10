@@ -1,4 +1,4 @@
-package jobdsigner
+package models
 
 //Pipeline is chain of jobs
 type Pipeline struct {

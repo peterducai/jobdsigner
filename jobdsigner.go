@@ -5,10 +5,12 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	"github.com/peterducai/jobdsigner/models"
 )
 
 func main() {
-	ver := new(Version{0, 0, 1, ""})
+	ver := models.Version{0, 0, 1, ""}
 	fmt.Println(ver)
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {

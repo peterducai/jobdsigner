@@ -1,4 +1,4 @@
-package jobdsigner
+package models
 
 //Version of server
 type Version struct {
