@@ -16,7 +16,7 @@ func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
 		w.Header().Add("Strict-Transport-Security", "max-age=63072000; includeSubDomains")
-		w.Write([]byte("reply from server"))
+		fmt.Fprintf(w, "Job dSigner %d.%d.%d %s\n", ver.MAJOR,ver.MINOR,ver.PATCH,ver.HASH)
 	})
 	cfg := &tls.Config{
 		MinVersion:               tls.VersionTLS12,
@@ -35,7 +35,7 @@ func main() {
 		TLSConfig:    cfg,
 		TLSNextProto: make(map[string]func(*http.Server, *tls.Conn, http.Handler), 0),
 	}
-	fmt.Println("server is running on port 8443")
+	fmt.Println("server is running at https://localhost:8443")
 	log.Fatal(srv.ListenAndServeTLS("tls.crt", "tls.key"))
 	
 }
