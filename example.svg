@@ -1,0 +1,20 @@
+<svg width="800" height="800">
+  <!-- <svg width="4096" height="2160"> -->
+  <defs>
+    <filter id="f2" x="0" y="0" width="200%" height="200%">
+      <feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" />
+      <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+    </filter>
+  </defs>
+  <rect width="90" height="90" stroke="green" stroke-width="3"
+  fill="yellow" filter="url(#f2)" />
+  <style>svg { background-color: white; }</style>
+  <circle cx="60" cy="60" r="40" stroke="black" stroke-width="3" fill="white" />
+  <ellipse cx="220" cy="50" rx="190" ry="20" style="fill:white" />
+  <rect x="50" y="20" rx="20" ry="20" width="150" height="150"  style="fill:blue;stroke:black;stroke-width:5;opacity:0.5" />
+  <rect x="99" y="99" rx="20" ry="20"  width="300" height="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" />
+  <a xlink:href="https://www.w3schools.com/graphics/" target="_blank">
+  <text x="240" y="215" fill="black" font-size="2em">Job dSigner</text>
+</a>
+</svg>
